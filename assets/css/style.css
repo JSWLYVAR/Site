@@ -194,7 +194,10 @@ footer.site nav a:hover{color:var(--miel)}
   .duo{grid-template-columns:1fr}
 
   .burger{display:block}
-  nav.primary{position:fixed;inset:72px 0 0 0;background:var(--brume);transform:translateX(100%);transition:transform .25s ease;overflow-y:auto;border-top:1px solid var(--celadon)}
+  /* header a un backdrop-filter, qui crée un nouveau bloc de positionnement pour les
+     descendants en position:fixed : on utilise donc height:100vh (immune au bloc de
+     positionnement) plutôt que bottom:0 pour garantir un panneau plein écran */
+  nav.primary{position:fixed;top:72px;left:0;width:100%;height:calc(100vh - 72px);background:var(--brume);transform:translateX(100%);transition:transform .25s ease;overflow-y:auto;border-top:1px solid var(--celadon)}
   nav.primary.open{transform:translateX(0)}
   nav.primary > ul{flex-direction:column;align-items:stretch;gap:0;padding:20px 24px 40px}
   nav.primary > ul > li{border-bottom:1px solid var(--celadon)}
@@ -202,7 +205,8 @@ footer.site nav a:hover{color:var(--miel)}
   .nav-cta{margin:20px 0 0}
   .nav-cta .btn{display:block;text-align:center}
   .dropdown{position:static;transform:none;box-shadow:none;border:none;background:var(--celadon);opacity:1;visibility:visible;max-height:0;overflow:hidden;padding:0 8px;margin-top:0;transition:max-height .25s ease, padding .25s ease}
-  .has-dropdown.open > .dropdown{max-height:400px;padding:8px}
-  .has-dropdown:hover > .dropdown{max-height:none}
+  .has-dropdown:hover > .dropdown,
+  .has-dropdown:focus-within > .dropdown,
+  .has-dropdown.open > .dropdown{transform:none;max-height:400px;padding:8px}
 }
 @media (max-width:560px){.grid4{grid-template-columns:1fr}}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catherine Bruyère — Kinésiologue à Andrézieux-Bouthéon (Loire)</title>
+<meta name="description" content="Kinésiologue certifiée à Andrézieux-Bouthéon. Stress, douleurs, blocages émotionnels : retrouvez votre équilibre, de l'enfant au senior. Prise de RDV en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sapin:#1E3A34;        /* encre sapin — titres, header */
+    --eucalyptus:#5E7F72;   /* vert doux — secondaire */
+    --brume:#F2F5F1;        /* fond général, blanc-vert pâle */
+    --celadon:#DDE7E1;      /* fonds de section alternés */
+    --miel:#B8873B;         /* accent CTA */
+    --blanc:#FFFFFF;
+    --encre:#25332F;        /* texte courant */
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Karla',sans-serif;color:var(--encre);background:var(--brume);line-height:1.65;font-size:17px}
+  h1,h2,h3{font-family:'Marcellus',serif;font-weight:400;color:var(--sapin);line-height:1.15}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--miel);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--eucalyptus);font-weight:700;margin-bottom:14px}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(242,245,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--celadon)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-family:'Marcellus',serif;font-size:1.25rem;color:var(--sapin);text-decoration:none;line-height:1.1}
+  .logo small{display:block;font-family:'Karla',sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--eucalyptus)}
+  nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+  nav a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--sapin)}
+  nav a:hover{color:var(--miel)}
+  .btn{display:inline-block;background:var(--sapin);color:var(--blanc);text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.92rem;transition:background .2s}
+  .btn:hover{background:var(--miel)}
+  .btn.gold{background:var(--miel)}
+  .btn.gold:hover{background:var(--sapin)}
+  .btn.ghost{background:transparent;color:var(--sapin);border:1.5px solid var(--sapin)}
+  .btn.ghost:hover{background:var(--sapin);color:var(--blanc)}
+  .burger{display:none}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:84px 0 96px;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);margin-bottom:20px}
+  .hero p.lede{font-size:1.15rem;max-width:34rem;margin-bottom:30px;color:#3C4E48}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .trust{display:flex;gap:22px;flex-wrap:wrap;font-size:.85rem;color:var(--eucalyptus)}
+  .trust span{display:flex;align-items:center;gap:7px}
+  .trust svg{flex:none}
+
+  /* Signature : ondes concentriques (bols tibétains / vibration) */
+  .waves{position:relative;aspect-ratio:1/1;max-width:430px;margin-left:auto}
+  .waves svg{width:100%;height:100%;display:block}
+  .ring{fill:none;stroke:var(--eucalyptus);stroke-width:1.2;opacity:.5;transform-origin:center;animation:breathe 7s ease-in-out infinite}
+  .ring:nth-child(2){animation-delay:1.1s;stroke:var(--sapin);opacity:.35}
+  .ring:nth-child(3){animation-delay:2.2s;opacity:.6}
+  .ring:nth-child(4){animation-delay:3.3s;stroke:var(--miel);opacity:.45}
+  .ring:nth-child(5){animation-delay:4.4s;opacity:.3}
+  @keyframes breathe{0%,100%{transform:scale(.94)}50%{transform:scale(1.03)}}
+  @media (prefers-reduced-motion:reduce){.ring{animation:none}}
+  .waves .center{font-family:'Marcellus',serif;fill:var(--sapin);font-size:15px}
+
+  /* ---------- Sections ---------- */
+  section{padding:80px 0}
+  .sec-head{max-width:44rem;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:12px}
+  .alt{background:var(--celadon)}
+
+  /* Pour qui */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .card{background:var(--blanc);border-radius:16px;padding:28px 24px;border:1px solid var(--celadon)}
+  .card h3{font-size:1.15rem;margin-bottom:10px}
+  .card p{font-size:.92rem;color:#48594F}
+  .card .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--miel);font-weight:700;display:block;margin-bottom:10px}
+
+  /* Séance — séquence réelle, la numérotation encode l'ordre */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step}
+  .step{background:var(--blanc);border-radius:16px;padding:30px 26px;position:relative;border:1px solid var(--celadon)}
+  .step::before{counter-increment:step;content:counter(step);font-family:'Marcellus',serif;font-size:2.4rem;color:var(--miel);display:block;margin-bottom:8px;line-height:1}
+  .step h3{font-size:1.1rem;margin-bottom:8px}
+  .step p{font-size:.92rem;color:#48594F}
+  .steps-note{margin-top:22px;font-size:.9rem;color:var(--eucalyptus)}
+
+  /* Méthodes */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .methode{border-radius:16px;padding:30px 26px;background:var(--sapin);color:var(--brume)}
+  .methode h3{color:var(--brume);font-size:1.2rem;margin-bottom:12px}
+  .methode ul{list-style:none;font-size:.92rem}
+  .methode li{padding:7px 0;border-bottom:1px solid rgba(242,245,241,.15)}
+  .methode li:last-child{border:none}
+  .methode a.more{display:inline-block;margin-top:16px;color:var(--miel);font-weight:700;font-size:.88rem;text-decoration:none}
+
+  /* Praticienne + avis */
+  .duo{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+  .portrait{background:linear-gradient(160deg,var(--celadon),var(--eucalyptus));border-radius:20px;aspect-ratio:4/5;display:flex;align-items:end;padding:22px;color:var(--sapin);font-size:.85rem;font-style:italic}
+  blockquote{background:var(--blanc);border-radius:16px;padding:26px;border-left:4px solid var(--miel);font-size:.98rem;margin-bottom:16px}
+  blockquote footer{margin-top:10px;font-size:.82rem;color:var(--eucalyptus);font-style:normal}
+
+  /* Infos pratiques */
+  .infos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .prix{font-family:'Marcellus',serif;font-size:2rem;color:var(--sapin)}
+  .prix small{font-family:'Karla',sans-serif;font-size:.85rem;color:var(--eucalyptus)}
+
+  /* Bande CTA finale */
+  .cta-final{background:var(--sapin);color:var(--brume);text-align:center;border-radius:24px;padding:64px 32px}
+  .cta-final h2{color:var(--brume);font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px}
+  .cta-final p{max-width:36rem;margin:0 auto 28px;opacity:.85}
+
+  footer.site{padding:44px 0;font-size:.85rem;color:#5B6B63}
+  footer.site .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .avert{margin-top:18px;font-size:.78rem;color:#7C8B82;max-width:52rem}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr}
+    .waves{margin:0 auto;max-width:320px}
+    .grid4{grid-template-columns:repeat(2,1fr)}
+    .steps,.grid3,.infos{grid-template-columns:1fr}
+    .duo{grid-template-columns:1fr}
+    nav ul{display:none}
+    .burger{display:block;background:none;border:none;font-size:1.6rem;color:var(--sapin);cursor:pointer}
+  }
+  @media (max-width:560px){.grid4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">Catherine Bruyère<small>Kinésiologue · Andrézieux-Bouthéon</small></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#kinesiologie">La kinésiologie</a></li>
+        <li><a href="#methodes">Mes méthodes</a></li>
+        <li><a href="#praticienne">Qui suis-je ?</a></li>
+        <li><a href="#infos">Infos pratiques</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a class="btn gold" href="https://www.resalib.fr" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Ouvrir le menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Kinésiologue certifiée · Andrézieux-Bouthéon, Loire</p>
+      <h1>Quand le corps dénoue ce que les mots ne disent pas.</h1>
+      <p class="lede">Stress, douleurs qui reviennent, sommeil difficile, émotions qui débordent&nbsp;: la kinésiologie interroge la mémoire du corps pour identifier vos blocages et retrouver votre équilibre — de l'enfant au senior.</p>
+      <div class="ctas">
+        <a class="btn gold" href="https://www.resalib.fr" target="_blank" rel="noopener">Prendre rendez-vous en ligne</a>
+        <a class="btn ghost" href="tel:+33600000000">06 00 00 00 00</a>
+      </div>
+      <div class="trust">
+        <span><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#5E7F72" stroke-width="1.5"/><path d="M4.5 7l1.8 1.8L9.7 5.4" stroke="#5E7F72" stroke-width="1.5" stroke-linecap="round"/></svg>Certifiée UKP</span>
+        <span><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#5E7F72" stroke-width="1.5"/><path d="M4.5 7l1.8 1.8L9.7 5.4" stroke="#5E7F72" stroke-width="1.5" stroke-linecap="round"/></svg>De l'enfance au grand âge</span>
+        <span><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#5E7F72" stroke-width="1.5"/><path d="M4.5 7l1.8 1.8L9.7 5.4" stroke="#5E7F72" stroke-width="1.5" stroke-linecap="round"/></svg>Cabinet avec parking gratuit</span>
+      </div>
+    </div>
+
+    <!-- Signature : ondes des bols tibétains -->
+    <div class="waves" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <circle class="ring" cx="200" cy="200" r="185"/>
+        <circle class="ring" cx="200" cy="200" r="150"/>
+        <circle class="ring" cx="200" cy="200" r="115"/>
+        <circle class="ring" cx="200" cy="200" r="80"/>
+        <circle class="ring" cx="200" cy="200" r="48"/>
+        <text class="center" x="200" y="206" text-anchor="middle">équilibre</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POUR QUI ============ -->
+<section class="alt" id="kinesiologie">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Pour qui&nbsp;?</p>
+      <h2>Un accompagnement à chaque âge de la vie</h2>
+      <p>La séance s'adapte à la personne — jamais l'inverse. Voici les motifs de consultation les plus fréquents.</p>
+    </div>
+    <div class="grid4">
+      <div class="card"><span class="tag">Enfant</span><h3>Grandir sereinement</h3><p>Difficultés scolaires, concentration, énurésie, peurs, sommeil agité, confiance en soi.</p></div>
+      <div class="card"><span class="tag">Adolescent</span><h3>Traverser les caps</h3><p>Stress des examens, orientation, image de soi, gestion des émotions, addictions aux écrans.</p></div>
+      <div class="card"><span class="tag">Adulte</span><h3>Relâcher la pression</h3><p>Burn-out, charge mentale, douleurs récurrentes, deuil, transitions de vie, sommeil.</p></div>
+      <div class="card"><span class="tag">Senior</span><h3>Rester en mouvement</h3><p>Mobilité, isolement, mémoire, accompagnement des étapes de la retraite et du vieillissement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNE SÉANCE ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Comment ça se passe&nbsp;?</p>
+      <h2>Une séance en trois temps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>L'échange</h3><p>Nous définissons ensemble votre objectif de séance&nbsp;: ce que vous souhaitez dépasser, apaiser ou comprendre.</p></div>
+      <div class="step"><h3>Le test musculaire</h3><p>Un léger toucher sur le bras interroge la mémoire du corps et localise le stress ou le blocage, souvent inconscient.</p></div>
+      <div class="step"><h3>L'équilibration</h3><p>Points réflexes, mouvements, sons ou respiration&nbsp;: le corps libère la tension identifiée et retrouve son équilibre.</p></div>
+    </div>
+    <p class="steps-note">Durée&nbsp;: environ 1&nbsp;h — la personne reste habillée pendant toute la séance.</p>
+  </div>
+</section>
+
+<!-- ============ MÉTHODES ============ -->
+<section class="alt" id="methodes">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Mes méthodes</p>
+      <h2>Trois familles d'outils, un même objectif</h2>
+      <p>Chaque séance mobilise les techniques les plus adaptées à votre besoin du moment.</p>
+    </div>
+    <div class="grid3">
+      <div class="methode"><h3>Kinésiologie appliquée</h3><ul><li>Santé par le toucher</li><li>Trois en Un (One Brain)</li><li>Édu-kinésiologie / Brain Gym</li></ul><a class="more" href="#">Découvrir →</a></div>
+      <div class="methode"><h3>Techniques réflexes</h3><ul><li>Réflexologie cranio-sacrée</li><li>Méthode Knap</li><li>Auriculothérapie</li></ul><a class="more" href="#">Découvrir →</a></div>
+      <div class="methode"><h3>Soins énergétiques &amp; sonores</h3><ul><li>Kinésiologie énergétique</li><li>Bols tibétains</li><li>Diapasons thérapeutiques</li></ul><a class="more" href="#">Découvrir →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRATICIENNE + AVIS ============ -->
+<section id="praticienne">
+  <div class="wrap duo">
+    <div>
+      <p class="eyebrow">Qui suis-je&nbsp;?</p>
+      <h2 style="margin-bottom:16px">Catherine Bruyère</h2>
+      <p style="margin-bottom:14px">Kinésiologue certifiée, formée aux principales approches de la kinésiologie et aux techniques réflexes et énergétiques, j'accompagne depuis mon cabinet d'Andrézieux-Bouthéon les personnes de tout âge vers un mieux-être durable.</p>
+      <p style="margin-bottom:24px">Mon approche&nbsp;: écouter d'abord la personne, puis laisser le corps indiquer le chemin. Chaque séance est unique, parce que chaque histoire l'est.</p>
+      <a class="btn" href="#">Mon parcours complet →</a>
+    </div>
+    <div>
+      <div class="portrait">Photo professionnelle de Catherine — à insérer (portrait chaleureux, lumière naturelle, cabinet en arrière-plan)</div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:48px">
+    <div class="grid3">
+      <blockquote>«&nbsp;Après trois séances, mon fils a retrouvé le sommeil et la confiance à l'école. Merci pour votre douceur.&nbsp;»<footer>Sandrine — maman de Léo, 8 ans</footer></blockquote>
+      <blockquote>«&nbsp;Je suis arrivée épuisée par mon travail. Catherine m'a aidée à comprendre ce que mon corps essayait de me dire.&nbsp;»<footer>Nathalie, 47 ans</footer></blockquote>
+      <blockquote>«&nbsp;Sceptique au départ, j'ai été surpris par la précision du test musculaire. Mes douleurs d'épaule ont nettement diminué.&nbsp;»<footer>Michel, 63 ans</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFOS PRATIQUES ============ -->
+<section class="alt" id="infos">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Infos pratiques</p>
+      <h2>Tarifs, remboursement &amp; accès</h2>
+    </div>
+    <div class="infos">
+      <div class="card">
+        <h3>Tarifs</h3>
+        <p class="prix">60&nbsp;€ <small>/ séance adulte (~1&nbsp;h)</small></p>
+        <p class="prix">50&nbsp;€ <small>/ séance enfant (–12 ans)</small></p>
+        <p style="font-size:.85rem;margin-top:10px">Règlement par chèque ou espèces.</p>
+      </div>
+      <div class="card">
+        <h3>Mutuelles</h3>
+        <p>De nombreuses mutuelles remboursent tout ou partie des séances de kinésiologie au titre des médecines douces. Une facture vous est remise à chaque séance.</p>
+        <a class="more" style="color:var(--miel);font-weight:700;text-decoration:none;font-size:.88rem" href="#">Liste des mutuelles partenaires →</a>
+      </div>
+      <div class="card">
+        <h3>Le cabinet</h3>
+        <p>4 rue Louis et Auguste Lumière<br>42160 Andrézieux-Bouthéon</p>
+        <p style="font-size:.85rem;margin-top:10px">Parking gratuit sur place · à 15&nbsp;min de Saint-Étienne · accès A72 sortie 8.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section>
+  <div class="wrap">
+    <div class="cta-final">
+      <h2>Et si votre corps avait quelque chose à vous dire&nbsp;?</h2>
+      <p>Réservez votre séance en ligne en moins de deux minutes, ou appelez-moi directement pour en parler.</p>
+      <a class="btn gold" href="https://www.resalib.fr" target="_blank" rel="noopener">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <strong style="color:var(--sapin)">Catherine Bruyère — Kinésiologue</strong><br>
+      4 rue Louis et Auguste Lumière, 42160 Andrézieux-Bouthéon<br>
+      <a href="tel:+33600000000">06 00 00 00 00</a> · <a href="mailto:contact@exemple.fr">contact@exemple.fr</a>
+    </div>
+    <div>
+      Consultations sur rendez-vous<br>Lundi – samedi
+    </div>
+  </div>
+  <div class="wrap avert">
+    La kinésiologie est une pratique de bien-être. Elle ne se substitue en aucun cas à un diagnostic ou à un traitement médical. En cas de problème de santé, consultez votre médecin.
+  </div>
+</footer>
+
+</body>
+</html>

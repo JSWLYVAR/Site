@@ -1,0 +1,208 @@
+/* =======================================================
+   Catherine Bruyère — Kinésiologue — feuille de style partagée
+   ======================================================= */
+:root{
+  --sapin:#1E3A34;        /* encre sapin — titres, header */
+  --eucalyptus:#5E7F72;   /* vert doux — secondaire */
+  --brume:#F2F5F1;        /* fond général, blanc-vert pâle */
+  --celadon:#DDE7E1;      /* fonds de section alternés */
+  --miel:#B8873B;         /* accent CTA */
+  --blanc:#FFFFFF;
+  --encre:#25332F;        /* texte courant */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;color:var(--encre);background:var(--brume);line-height:1.65;font-size:17px}
+h1,h2,h3{font-family:'Marcellus',serif;font-weight:400;color:var(--sapin);line-height:1.15}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--miel);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--eucalyptus);font-weight:700;margin-bottom:14px}
+
+/* ---------- Header / Navigation ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(242,245,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--celadon)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;position:relative}
+.logo{font-family:'Marcellus',serif;font-size:1.2rem;color:var(--sapin);text-decoration:none;line-height:1.1;flex:none}
+.logo small{display:block;font-family:'Karla',sans-serif;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--eucalyptus)}
+
+nav.primary{display:flex;align-items:center}
+nav.primary > ul{display:flex;gap:16px;list-style:none;align-items:center}
+nav.primary > ul > li{position:relative}
+nav.primary a{text-decoration:none;font-size:.87rem;font-weight:500;color:var(--sapin);white-space:nowrap}
+nav.primary > ul > li > a, nav.primary > ul > li > .nav-toggle{padding:8px 2px;display:inline-flex;align-items:center;gap:4px}
+nav.primary a:hover{color:var(--miel)}
+
+.btn{display:inline-block;background:var(--sapin);color:var(--blanc);text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.92rem;transition:background .2s;border:none;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--miel)}
+.btn.gold{background:var(--miel)}
+.btn.gold:hover{background:var(--sapin)}
+.btn.ghost{background:transparent;color:var(--sapin);border:1.5px solid var(--sapin)}
+.btn.ghost:hover{background:var(--sapin);color:var(--blanc)}
+.btn.small{padding:9px 16px;font-size:.82rem}
+.nav-cta{margin-left:6px}
+
+/* Dropdown (desktop: hover/focus ; mobile: tap) */
+.has-dropdown > .nav-toggle{background:none;border:none;font:inherit;color:var(--sapin);cursor:pointer}
+.nav-toggle .chev{font-size:.65em;transition:transform .2s}
+.has-dropdown.open > .nav-toggle .chev,
+.has-dropdown:hover > .nav-toggle .chev{transform:rotate(180deg)}
+.dropdown{list-style:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:250px;background:var(--blanc);border:1px solid var(--celadon);border-radius:14px;padding:8px;box-shadow:0 18px 40px rgba(30,58,52,.14);opacity:0;visibility:hidden;transform:translateX(-50%) translateY(6px);transition:opacity .18s ease, transform .18s ease}
+.has-dropdown:hover > .dropdown,
+.has-dropdown:focus-within > .dropdown,
+.has-dropdown.open > .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dropdown li a{display:block;padding:10px 14px;border-radius:8px;font-size:.86rem;color:var(--sapin)}
+.dropdown li a:hover,.dropdown li a:focus-visible{background:var(--brume);color:var(--miel)}
+.dropdown li a.current{color:var(--miel);font-weight:700}
+
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--sapin);cursor:pointer;line-height:1}
+
+nav a.current{color:var(--miel)}
+
+/* ---------- Hero (accueil) ---------- */
+.hero{padding:84px 0 96px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);margin-bottom:20px}
+.hero p.lede{font-size:1.15rem;max-width:34rem;margin-bottom:30px;color:#3C4E48}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.trust{display:flex;gap:22px;flex-wrap:wrap;font-size:.85rem;color:var(--eucalyptus)}
+.trust span{display:flex;align-items:center;gap:7px}
+.trust svg{flex:none}
+
+/* Signature : ondes concentriques (bols tibétains / vibration) */
+.waves{position:relative;aspect-ratio:1/1;max-width:430px;margin-left:auto}
+.waves svg{width:100%;height:100%;display:block}
+.ring{fill:none;stroke:var(--eucalyptus);stroke-width:1.2;opacity:.5;transform-origin:center;animation:breathe 7s ease-in-out infinite}
+.ring:nth-child(2){animation-delay:1.1s;stroke:var(--sapin);opacity:.35}
+.ring:nth-child(3){animation-delay:2.2s;opacity:.6}
+.ring:nth-child(4){animation-delay:3.3s;stroke:var(--miel);opacity:.45}
+.ring:nth-child(5){animation-delay:4.4s;opacity:.3}
+@keyframes breathe{0%,100%{transform:scale(.94)}50%{transform:scale(1.03)}}
+@media (prefers-reduced-motion:reduce){.ring{animation:none}}
+.waves .center{font-family:'Marcellus',serif;fill:var(--sapin);font-size:15px}
+
+/* ---------- Page hero (pages intérieures) ---------- */
+.page-hero{padding:56px 0 64px}
+.page-hero h1{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
+.page-hero p.lede{font-size:1.05rem;max-width:40rem;color:#3C4E48}
+.breadcrumb{list-style:none;display:flex;flex-wrap:wrap;gap:6px;font-size:.82rem;color:var(--eucalyptus);margin-bottom:18px}
+.breadcrumb li:not(:last-child)::after{content:"/";margin-left:6px;color:var(--eucalyptus);opacity:.6}
+.breadcrumb a{text-decoration:none;color:var(--eucalyptus)}
+.breadcrumb a:hover{color:var(--miel)}
+.breadcrumb li:last-child{color:var(--sapin);font-weight:700}
+
+/* ---------- Sections ---------- */
+section{padding:80px 0}
+.sec-head{max-width:44rem;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:12px}
+.alt{background:var(--celadon)}
+
+/* Pour qui */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--blanc);border-radius:16px;padding:28px 24px;border:1px solid var(--celadon)}
+.card h3{font-size:1.15rem;margin-bottom:10px}
+.card p{font-size:.92rem;color:#48594F}
+.card .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--miel);font-weight:700;display:block;margin-bottom:10px}
+
+/* Séance — séquence réelle, la numérotation encode l'ordre */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step}
+.step{background:var(--blanc);border-radius:16px;padding:30px 26px;position:relative;border:1px solid var(--celadon)}
+.step::before{counter-increment:step;content:counter(step);font-family:'Marcellus',serif;font-size:2.4rem;color:var(--miel);display:block;margin-bottom:8px;line-height:1}
+.step h3{font-size:1.1rem;margin-bottom:8px}
+.step p{font-size:.92rem;color:#48594F}
+.steps-note{margin-top:22px;font-size:.9rem;color:var(--eucalyptus)}
+
+/* Méthodes */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.methode{border-radius:16px;padding:30px 26px;background:var(--sapin);color:var(--brume)}
+.methode h3{color:var(--brume);font-size:1.2rem;margin-bottom:12px}
+.methode ul{list-style:none;font-size:.92rem}
+.methode li{padding:7px 0;border-bottom:1px solid rgba(242,245,241,.15)}
+.methode li:last-child{border:none}
+.methode a.more{display:inline-block;margin-top:16px;color:var(--miel);font-weight:700;font-size:.88rem;text-decoration:none}
+.methode.current-page{outline:2px solid var(--miel);outline-offset:3px}
+
+/* Praticienne + avis */
+.duo{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+.portrait{background:linear-gradient(160deg,var(--celadon),var(--eucalyptus));border-radius:20px;aspect-ratio:4/5;display:flex;align-items:end;padding:22px;color:var(--sapin);font-size:.85rem;font-style:italic}
+blockquote{background:var(--blanc);border-radius:16px;padding:26px;border-left:4px solid var(--miel);font-size:.98rem;margin-bottom:16px}
+blockquote footer{margin-top:10px;font-size:.82rem;color:var(--eucalyptus);font-style:normal}
+
+/* Infos pratiques */
+.infos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prix{font-family:'Marcellus',serif;font-size:2rem;color:var(--sapin)}
+.prix small{font-family:'Karla',sans-serif;font-size:.85rem;color:var(--eucalyptus)}
+
+/* Contenu éditorial (pages intérieures) */
+.content{max-width:44rem}
+.content h2{margin-top:8px;margin-bottom:14px;font-size:clamp(1.4rem,2.6vw,1.8rem)}
+.content h2:not(:first-child){margin-top:40px}
+.content h3{margin-top:26px;margin-bottom:10px;font-size:1.15rem}
+.content p{margin-bottom:16px}
+.content ul,.content ol{margin:0 0 16px 22px}
+.content li{margin-bottom:8px}
+.content .note{background:var(--celadon);border-radius:14px;padding:20px 22px;font-size:.92rem;margin:20px 0}
+
+/* Tableau (tarifs / mutuelles) */
+.table-wrap{overflow-x:auto;margin-bottom:24px}
+table{width:100%;border-collapse:collapse;background:var(--blanc);border-radius:14px;overflow:hidden;font-size:.92rem}
+table caption{text-align:left;font-size:.8rem;color:var(--eucalyptus);margin-bottom:8px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--celadon)}
+th{background:var(--sapin);color:var(--brume);font-family:'Marcellus',serif;font-weight:400}
+tr:last-child td{border-bottom:none}
+
+/* Accordéon FAQ simple (details/summary) */
+.faq{max-width:44rem}
+.faq details{background:var(--blanc);border:1px solid var(--celadon);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+.faq summary{font-family:'Marcellus',serif;color:var(--sapin);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--miel);font-size:1.3rem;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin-top:12px;font-size:.94rem;color:#48594F}
+
+/* Carte itinéraire / accès */
+.map-embed{border-radius:16px;overflow:hidden;border:1px solid var(--celadon);aspect-ratio:16/10}
+.map-embed iframe{width:100%;height:100%;border:0;display:block}
+.access-list{list-style:none}
+.access-list li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--celadon);font-size:.94rem}
+.access-list li:last-child{border-bottom:none}
+.access-list svg{flex:none;margin-top:3px}
+
+/* Bande CTA finale */
+.cta-final{background:var(--sapin);color:var(--brume);text-align:center;border-radius:24px;padding:64px 32px}
+.cta-final h2{color:var(--brume);font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px}
+.cta-final p{max-width:36rem;margin:0 auto 28px;opacity:.85}
+
+footer.site{padding:44px 0;font-size:.85rem;color:#5B6B63}
+footer.site .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer.site nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem}
+footer.site nav a{text-decoration:none;color:#5B6B63}
+footer.site nav a:hover{color:var(--miel)}
+.avert{margin-top:18px;font-size:.78rem;color:#7C8B82;max-width:52rem}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1140px){
+  nav.primary > ul{gap:10px}
+  nav.primary a{font-size:.83rem}
+  .btn.small{padding:8px 14px}
+}
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr}
+  .waves{margin:0 auto;max-width:320px}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .steps,.grid3,.infos{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+
+  .burger{display:block}
+  nav.primary{position:fixed;inset:72px 0 0 0;background:var(--brume);transform:translateX(100%);transition:transform .25s ease;overflow-y:auto;border-top:1px solid var(--celadon)}
+  nav.primary.open{transform:translateX(0)}
+  nav.primary > ul{flex-direction:column;align-items:stretch;gap:0;padding:20px 24px 40px}
+  nav.primary > ul > li{border-bottom:1px solid var(--celadon)}
+  nav.primary > ul > li > a,nav.primary > ul > li > .nav-toggle{padding:16px 4px;font-size:1rem;width:100%;justify-content:space-between}
+  .nav-cta{margin:20px 0 0}
+  .nav-cta .btn{display:block;text-align:center}
+  .dropdown{position:static;transform:none;box-shadow:none;border:none;background:var(--celadon);opacity:1;visibility:visible;max-height:0;overflow:hidden;padding:0 8px;margin-top:0;transition:max-height .25s ease, padding .25s ease}
+  .has-dropdown.open > .dropdown{max-height:400px;padding:8px}
+  .has-dropdown:hover > .dropdown{max-height:none}
+}
+@media (max-width:560px){.grid4{grid-template-columns:1fr}}

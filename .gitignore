@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+node_modules/
+
+# Raccourcis Git for Windows présents dans le dossier d'installation
+Git Bash.lnk
+Git CMD.lnk
+Git FAQs (Frequently Asked Questions).url
+Git GUI.lnk
+Git Release Notes.lnk

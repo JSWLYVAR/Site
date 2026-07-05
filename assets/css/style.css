@@ -125,6 +125,21 @@ section{padding:80px 0}
 /* Praticienne + avis */
 .duo{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
 .portrait{background:linear-gradient(160deg,var(--celadon),var(--eucalyptus));border-radius:20px;aspect-ratio:4/5;display:flex;align-items:end;padding:22px;color:var(--sapin);font-size:.85rem;font-style:italic}
+
+/* ---------- Emplacements photo ----------
+   Déposer les fichiers dans assets/img/ puis remplacer le bloc .photo-ph
+   par la balise <img> fournie en commentaire dans chaque page. */
+.photo{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--celadon);background:linear-gradient(160deg,var(--celadon),#CBDCD2);position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo--3x2{aspect-ratio:3/2}
+.photo--16x9{aspect-ratio:16/9}
+.photo--4x5{aspect-ratio:4/5;border-radius:20px}
+.photo-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;color:var(--sapin);font-size:.85rem;font-style:italic}
+.photo-ph strong{font-style:normal;font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:.76rem;letter-spacing:.02em}
+.photo-ph .dims{font-style:normal;font-size:.78rem;color:var(--eucalyptus)}
+.content .photo{margin:28px 0}
+figcaption{font-size:.8rem;color:var(--eucalyptus);margin-top:10px;font-style:italic}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 blockquote{background:var(--blanc);border-radius:16px;padding:26px;border-left:4px solid var(--miel);font-size:.98rem;margin-bottom:16px}
 blockquote footer{margin-top:10px;font-size:.82rem;color:var(--eucalyptus);font-style:normal}
 
@@ -190,7 +205,7 @@ footer.site nav a:hover{color:var(--miel)}
   .hero .wrap{grid-template-columns:1fr}
   .waves{margin:0 auto;max-width:320px}
   .grid4{grid-template-columns:repeat(2,1fr)}
-  .steps,.grid3,.infos{grid-template-columns:1fr}
+  .steps,.grid3,.infos,.grid2{grid-template-columns:1fr}
   .duo{grid-template-columns:1fr}
 
   .burger{display:block}

@@ -25,6 +25,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Carte Google Maps : chargée uniquement après le clic de consentement (RGPD)
+  document.querySelectorAll('[data-map-src]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var container = btn.closest('.map-embed');
+      var iframe = document.createElement('iframe');
+      iframe.src = btn.getAttribute('data-map-src');
+      iframe.title = btn.getAttribute('data-map-title') || 'Carte';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+
   // Ferme le menu mobile quand on clique un lien direct
   document.querySelectorAll('nav.primary > ul > li > a').forEach(function (link) {
     link.addEventListener('click', function () {

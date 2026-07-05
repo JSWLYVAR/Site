@@ -17,14 +17,18 @@ methodes/
 qui-suis-je.html
 tarifs-mutuelles.html
 cabinet-acces.html
+mentions-legales.html                         Squelette à compléter (SIRET, contacts…)
+404.html                                      Page d'erreur personnalisée GitHub Pages
 assets/
   css/style.css                               Feuille de style partagée (couleurs, typos Marcellus/Karla, composants)
-  js/main.js                                  Menu mobile + sous-menus déroulants
+  js/main.js                                  Menu mobile, sous-menus, carte Google à consentement
+  fonts/                                      Polices auto-hébergées (RGPD : aucun appel aux serveurs Google)
+  img/favicon.svg
 robots.txt, sitemap.xml, CNAME
 .github/workflows/deploy.yml                  Déploiement automatique GitHub Pages
 ```
 
-`accueil-catherine-bruyere.html` (à la racine) est la maquette d'origine, conservée telle quelle à titre de référence.
+La maquette d'origine (`accueil-catherine-bruyere.html`) a été retirée du site pour éviter le contenu dupliqué ; elle reste consultable dans l'historique git (`git show ff5eb22:accueil-catherine-bruyere.html`).
 
 ## Aperçu en local
 
@@ -39,8 +43,9 @@ python -m http.server 8000
 
 - Chaque page a un `<title>` et une `<meta name="description">` uniques.
 - Balises `og:*` de base + `rel="canonical"` par page.
-- JSON-LD `LocalBusiness` inclus sur chaque page (adresse, horaires, téléphone).
+- JSON-LD `LocalBusiness` (adresse, horaires, GPS) sur chaque page + `BreadcrumbList` sur les pages intérieures + `FAQPage` sur la page « Qu'est-ce que la kinésiologie ».
 - `sitemap.xml` et `robots.txt` prêts à l'emploi.
+- Polices auto-hébergées et carte Google chargée après consentement (RGPD, et meilleur score de vitesse).
 
 ## Déploiement GitHub Pages
 
@@ -63,6 +68,8 @@ Les éléments suivants sont des **placeholders** repris de la maquette d'origin
 - Téléphone : `06 00 00 00 00` / `tel:+33600000000`
 - E-mail : `contact@exemple.fr`
 - Lien de prise de RDV : `https://www.resalib.fr` (à remplacer par le vrai lien Resalib ou autre plateforme)
-- Photo professionnelle (bloc `.portrait` sur `index.html` et `qui-suis-je.html`)
-- Coordonnées GPS du JSON-LD (`geo.latitude` / `geo.longitude`) et adresse si elles diffèrent
+- Photos (voir `PHOTOS.md` pour la liste et les formats)
+- Champs `[À COMPLÉTER]` de `mentions-legales.html` (statut, SIRET, contacts)
+- Coordonnées GPS du JSON-LD : actuellement 45.5242 / 4.2711 (niveau rue) — affiner au bâtiment via clic droit sur Google Maps si besoin
 - Tableau des mutuelles partenaires (`tarifs-mutuelles.html`) — à confirmer avec les partenaires réels
+- Témoignages (`index.html`, `qui-suis-je.html`) : exemples fictifs issus de la maquette, à remplacer par de vrais avis clients (avec leur accord) avant la mise en ligne
